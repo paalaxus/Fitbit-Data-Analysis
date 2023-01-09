@@ -50,7 +50,7 @@ Queries were done in Bigquery
 
 -summary of tables was collected 
 
-Daily Activity Data
+Finding from Daily Activity Data table
 
 //sums
 SELECT id, round(sum(TotalDistance),3)as sum_TotalDistance, sum(calories) as sum_calories, sum(TotalSteps) as sum_totalsteps
@@ -68,12 +68,46 @@ order by id asc
 SELECT round(avg(TotalDistance),3)as avg_TotalDistance, round(avg(calories),3) as avg_calories, round(avg(TotalSteps),3) as avg_totalsteps
 FROM `fitbit-capstone-373720.dailyactivity.dailyactivity` 
 
-Finding from Daily Activity Data table
 
+Takeaways
 - Average steps were 7638 with an average total distance of 5.49km and Average calories of 2303
 - Average sedentary Minutes was 991.2 and average of Very active Minutes is 21.16
 - Average steps were below the recommended 10,000 and average distance was below the recommended 8km
 
+Finding from Weight table
+
+SELECT round(avg(BMI),2) as avg_BMI 
+FROM `fitbit-capstone-373720.weightlog.weightlog`
+
+Takeaways
+
+-Most of the fields for recorded Fat information was empty, so it was not used in the analysis since we cannot use similar information for unique information like that.
+-Average BMI was 25.19
+-According to the CDC, the average adult man has a BMI of 26.6 and the average adult woman has a BMI of 26.5 - These are average for the USA
+Healthy BMI ranges are between 18 and 24.9
+
+
+Findings from Daily sleep table
+
+Sleepday_merged data set gave an error when importing in Bigquery
+There was an issue with the date and time column validation 
+The AM zone was not recognized - all fields had the same time 12:00am, so the time field is a constant that could be removed
+
+Calculated the average sleeptime
+
+SELECT sum(totalsleeprecords) as sum_Totalsleeprecords, round(sum (totalminutesasleep)/sum(totalsleeprecords),2) as avg_sleeptime
+FROM `fitbit-capstone-373720.Sleepday.sleepday` 
+
+
+Calculated average time in bed
+
+SELECT round(sum(TotalTimeInBed)/sum(TotalSleepRecords),3) as avg_timeinbed
+FROM `fitbit-capstone-373720.Sleepday.sleepday` 
+
+Takeaways
+- Total sleeprecords added up to 462 and the Average sleep time was 374 minutes
+- Average time in bed was 409
+- People spent about 35 minutes awake  before sleeping
 
 
 
