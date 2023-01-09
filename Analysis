@@ -1,0 +1,79 @@
+1.Ask Phase:
+Firstly, we need to address who are our key stakeholders? In this case we have following stakeholders:
+
+Urška Sršen: Bellabeat’s co-founder and Chief Creative Officer
+Sando Mur: Mathematician and Bellabeat’s co-founder; key member of the Bellabeat executive team
+Bellabeat marketing analytics team
+
+
+2.Prepare Phase:
+Public data set on Kaggle was used:
+-FitBit Fitness Tracker Data (CC0: Public Domain, dataset made available through Mobius):
+-This Kaggle data set contains personal fitness tracker from thirty fitbit users. 
+-Thirty eligible Fitbit users consented to the submission of personal tracker data, including minute-level output for physical activity, heart rate, and sleep monitoring. It includes information about daily activity, steps, and heart rate that can be used to explore users’ habits. Data is publicly available on Kaggle: FitBit Fitness Tracker Data and stored in 18 csv files.
+In the Prepare phase, we identify the data being used and its limitations.
+
+-Sample size of 30 is too small for accurate analysis
+-Data is collected 7 years ago in 2016. Users’ daily activity, fitness and sleeping habits, diet and food consumption may have changed since then. 
+-some information like weight is entered by the user, so it could be innacurate
+-some information of calories is missing, which could indicate users did not have the devices on
+-Data may not be timely or relevant.
+
+Is Data ROCCC?
+
+A good data source is ROCCC which stands for Reliable, Original, Comprehensive, Current, and Cited.
+
+Reliable — LOW — Not reliable as it only has 30 person sample size
+
+Original — LOW — Third party provider (Amazon Mechanical Turk)
+
+Comprehensive — MED — Parameters match most of Bellabeat products’ parameters
+
+Current — LOW — Data is 7 years old and may not be relevant
+
+Cited — LOW — Data collected from third party, hence unknown 
+
+Dataset is not of high enough quality to make innovative business decisions
+
+
+3.Process Phase:
+Data would be cleaned to ensure its error free and complete
+
+Tools used : Google sheets and Bigquery
+
+Data was first opened in google sheets to validate and clean
+Columns were trimmed to ensure there were no unwanted spaces
+Columns were validated to ensure even data types
+
+
+Queries were done in Bigquery 
+
+-summary of tables was collected 
+
+Daily Activity Data
+
+//sums
+SELECT id, round(sum(TotalDistance),3)as sum_TotalDistance, sum(calories) as sum_calories, sum(TotalSteps) as sum_totalsteps
+FROM `fitbit-capstone-373720.dailyactivity.dailyactivity` 
+group by Id
+order by Id asc
+
+//averages per person
+SELECT id, round(avg(TotalDistance),3)as avg_TotalDistance, round(avg(calories),3) as avg_calories, round(avg(TotalSteps),3) as avg_totalsteps
+FROM `fitbit-capstone-373720.dailyactivity.dailyactivity` 
+group by Id
+order by id asc
+
+//totalaverages
+SELECT round(avg(TotalDistance),3)as avg_TotalDistance, round(avg(calories),3) as avg_calories, round(avg(TotalSteps),3) as avg_totalsteps
+FROM `fitbit-capstone-373720.dailyactivity.dailyactivity` 
+
+Finding from Daily Activity Data table
+
+- Average steps were 7638 with an average total distance of 5.49km and Average calories of 2303
+- Average sedentary Minutes was 991.2 and average of Very active Minutes is 21.16
+- Average steps were below the recommended 10,000 and average distance was below the recommended 8km
+
+
+
+
