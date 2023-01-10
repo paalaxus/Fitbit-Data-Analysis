@@ -120,8 +120,10 @@ and dailyintensities.activityday = dailycalories.activityday
 group by dailyintensities.Id
 order by totalveryactivedistance desc
 
+Findings
+The trend for calories vs distance is upwards but its not as definitive as I expected
 
 
 
 
-Results will be in the file labeled Visualizations
+Results of visualizations will be in the Powerpoint presentation
