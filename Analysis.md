@@ -52,24 +52,34 @@ Queries were done in Bigquery
 
 Finding from Daily Activity Data table
 
-//sums
+#sums
+
 SELECT id, round(sum(TotalDistance),3)as sum_TotalDistance, sum(calories) as sum_calories, sum(TotalSteps) as sum_totalsteps
 FROM `fitbit-capstone-373720.dailyactivity.dailyactivity` 
 group by Id
 order by Id asc
 
+![2023-01-11 07_18_10-BigQuery – Fitbit-capstone – Google Cloud console - Opera](https://user-images.githubusercontent.com/58373408/211816255-ba4e6663-53ea-4b1d-8add-d9607cde0a88.png)
 
 
 
-//averages per person
+
+#averages per person
+
 SELECT id, round(avg(TotalDistance),3)as avg_TotalDistance, round(avg(calories),3) as avg_calories, round(avg(TotalSteps),3) as avg_totalsteps
 FROM `fitbit-capstone-373720.dailyactivity.dailyactivity` 
 group by Id
 order by id asc
 
-//totalaverages
+![2023-01-11 07_25_23-BigQuery – Fitbit-capstone – Google Cloud console - Opera](https://user-images.githubusercontent.com/58373408/211817664-06ec07b3-3811-4f78-b483-ddea60ae7b5e.png)
+
+
+#totalaverages
+
 SELECT round(avg(TotalDistance),3)as avg_TotalDistance, round(avg(calories),3) as avg_calories, round(avg(TotalSteps),3) as avg_totalsteps
 FROM `fitbit-capstone-373720.dailyactivity.dailyactivity` 
+
+![2023-01-11 07_26_11-BigQuery – Fitbit-capstone – Google Cloud console - Opera](https://user-images.githubusercontent.com/58373408/211817828-e4c29957-047a-4034-b6f8-02b514f2b118.png)
 
 
 Takeaways
@@ -81,6 +91,9 @@ Finding from Weight table
 
 SELECT round(avg(BMI),2) as avg_BMI 
 FROM `fitbit-capstone-373720.weightlog.weightlog`
+
+![2023-01-11 07_26_52-BigQuery – Fitbit-capstone – Google Cloud console - Opera](https://user-images.githubusercontent.com/58373408/211817983-e9a5b6b8-4a54-49e9-a923-0ed7ad8715fa.png)
+
 
 Takeaways
 
@@ -101,11 +114,16 @@ Calculated the average sleeptime
 SELECT sum(totalsleeprecords) as sum_Totalsleeprecords, round(sum (totalminutesasleep)/sum(totalsleeprecords),2) as avg_sleeptime
 FROM `fitbit-capstone-373720.Sleepday.sleepday` 
 
+![2023-01-11 07_27_20-BigQuery – Fitbit-capstone – Google Cloud console - Opera](https://user-images.githubusercontent.com/58373408/211818092-2b1351e1-7036-4a00-92d1-973a92c19139.png)
+
 
 Calculated average time in bed
 
 SELECT round(sum(TotalTimeInBed)/sum(TotalSleepRecords),3) as avg_timeinbed
 FROM `fitbit-capstone-373720.Sleepday.sleepday` 
+
+![2023-01-11 07_27_48-BigQuery – Fitbit-capstone – Google Cloud console - Opera](https://user-images.githubusercontent.com/58373408/211818197-cee9b60b-441e-4f10-8a81-18d72eca64e8.png)
+
 
 Takeaways
 - Total sleeprecords added up to 462 and the Average sleep time was 374 minutes
@@ -122,6 +140,9 @@ on dailyintensities.id = dailycalories.id
 and dailyintensities.activityday = dailycalories.activityday
 group by dailyintensities.Id
 order by totalveryactivedistance desc
+
+![2023-01-11 07_28_16-BigQuery – Fitbit-capstone – Google Cloud console - Opera](https://user-images.githubusercontent.com/58373408/211818286-92345b7c-3e7f-4bc4-a10a-749619a08509.png)
+
 
 Findings
 The trend for calories vs distance is upwards but its not as definitive as I expected
