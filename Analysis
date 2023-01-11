@@ -58,6 +58,9 @@ FROM `fitbit-capstone-373720.dailyactivity.dailyactivity`
 group by Id
 order by Id asc
 
+![2023-01-11 07_18_10-BigQuery – Fitbit-capstone – Google Cloud console - Opera](https://user-images.githubusercontent.com/58373408/211816255-ba4e6663-53ea-4b1d-8add-d9607cde0a88.png)
+
+
 //averages per person
 SELECT id, round(avg(TotalDistance),3)as avg_TotalDistance, round(avg(calories),3) as avg_calories, round(avg(TotalSteps),3) as avg_totalsteps
 FROM `fitbit-capstone-373720.dailyactivity.dailyactivity` 
