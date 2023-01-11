@@ -143,7 +143,9 @@ FROM `fitbit-capstone-373720.Sleepday.sleepday`
 - Average time in bed was 409
 - People spent about 35 minutes awake  before sleeping
 
-**Multiple table summaries**
+
+## Multiple table summaries
+
 *found the total calories vs the total active distance per user*
 
 SELECT dailyintensities.Id, sum(calories) as totalcalories,round(sum(VeryActiveDistance),2) as totalveryactivedistance
