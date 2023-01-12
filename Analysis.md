@@ -176,4 +176,20 @@ The trend for calories vs distance is upwards but its not as definitive as I exp
 -The marketing team can use the information to target people that are not very active and give incentives to use the device more. We can suggest different types of activities and a more accurate way of getting user information like weight.
 
 
-**Results of visualizations will be in the Powerpoint presentation**
+**Results of visualizations are below and will be in the Powerpoint presentation**
+
+
+
+# Visualizations
+
+![most active days](https://user-images.githubusercontent.com/58373408/211822765-f21e9308-edd7-4737-bdc0-b8f3ca7afaf9.png)
+
+![Percentage of Activity in Distance](https://user-images.githubusercontent.com/58373408/211822777-744dc7b7-dc73-47af-928a-4aaf0cf1f747.png)
+
+![sedentary minutes vs total steps](https://user-images.githubusercontent.com/58373408/211822850-6cc05e87-f72f-414b-b8b9-ab6f061e7dba.png)
+
+![calories vs steps](https://user-images.githubusercontent.com/58373408/211822904-fdad4a69-4da4-4c5a-adac-e7f8f8acba07.png)
+
+![calories vs sedentary minutes](https://user-images.githubusercontent.com/58373408/211822924-e1e23260-a48f-4a87-b9e0-f78317ca3635.png)
+
+![Calories vs active distance](https://user-images.githubusercontent.com/58373408/211822944-106ea70d-c835-4ea1-9031-743e875ec8a6.png)
